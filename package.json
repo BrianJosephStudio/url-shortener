@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/mongoose": "^5.11.97",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.2.3",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "a project for the free code camp certification on express and mongo",
+  "main": "src/server.ts",
+  "scripts": {
+    "start": "nodemon",
+    "test": "jest --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/BrianJosephStudio/url-shortener.git"
+  },
+  "keywords": [
+    "brian",
+    "ure",
+    "freecodecamp",
+    "shorturl"
+  ],
+  "author": "Brian Ure",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianJosephStudio/url-shortener/issues"
+  },
+  "homepage": "https://github.com/BrianJosephStudio/url-shortener#readme",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^29.5.12",
+    "axios": "^1.6.8",
+    "jest": "^29.7.0"
+  }
+}
