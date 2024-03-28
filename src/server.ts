@@ -10,9 +10,7 @@ const startServer = async () => {
     const database = new Database()
     await database.connect()
 
-    app.use(cors({
-        exposedHeaders: ['Custom-Header-Name', 'location']
-    }))
+    app.use(cors())
     app.use(bodyParser.json())
 
     app.get(["/", "/api"], (req: Request, res: Response) => res.redirect("/api/shorturl"))
@@ -27,7 +25,7 @@ const startServer = async () => {
 
             console.log(url, "hits the endpoint")
             if (
-                !/^(https?:\/\/)?(www\.)?\w+\.com/.test(url) ||
+                !/^(https?:\/\/)?(www\.)?\w+[\.:](com)?(\d+)?/.test(url) ||
                 !url ||
                 typeof url !== "string"
             ) {
