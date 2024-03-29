@@ -11,6 +11,7 @@ const startServer = async () => {
     await database.connect()
 
     app.use(cors())
+    app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
 
     app.get(["/", "/api"], (req: Request, res: Response) => res.redirect("/api/shorturl"))
@@ -22,10 +23,11 @@ const startServer = async () => {
     app.post("/api/shorturl", async (req: Request, res: Response) => {
         try {
             const url = req.body.url
+            console.log(req.body)
 
             console.log(url, "hits the endpoint")
             if (
-                !/^(https?:\/\/)?(www\.)?\w+[\.:](com)?(\d+)?/.test(url) ||
+                !/^(https?:\/\/)?(www\.)?\w+(\.|:)(com|\d+)/.test(url) ||
                 !url ||
                 typeof url !== "string"
             ) {
