@@ -39,14 +39,12 @@ export class Database {
 
     try {
       const existingDocument = await Model.findOne(content).select("-_id").exec()
-      console.log("existingDocument", existingDocument)
       if (existingDocument) {
         return existingDocument
       }
 
       const allShortUrls = await Model.find({}).select("-_id -original_url").exec()
 
-      console.log(allShortUrls)
       let short_url: number = 0
       await Promise.all(
         allShortUrls.map((elem: any, index: Number) => {
