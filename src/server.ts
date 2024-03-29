@@ -14,7 +14,6 @@ const startServer = async () => {
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
 
-    app.get(["/", "/api"], (req: Request, res: Response) => res.redirect("/api/shorturl"))
 
     app.get("/api/shorturl", (req: Request, res: Response) => {
 
@@ -62,7 +61,7 @@ const startServer = async () => {
                 return res.json({ error: "Short Url does not exist"})
             }
 
-            return res.status(302).redirect(302, document.original_url)
+            return res.redirect(document.original_url)
 
 
         } catch (e) {
